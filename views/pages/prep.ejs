@@ -1,0 +1,50 @@
+<div class="jumbotron text-center">
+    <h1 style="color: black; text-align: center;   padding-left: 70px;font: size 8;"><u>Preparation</u></h1>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">As defined earlier we shall track and map the Offensive Indicators, Behavior Fingerprints, Supporting Artifacts and Tools from the "Threat Course of Action" document to the Common Cyber Threat Framework.</div>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li><b>Offensive Indicator: Intent, Reconnaissance</b></li>
+    </ul>
+    <figure>
+        <img src="../img/pbprep1.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 50%;">
+    </figure>
+    <h1 style="color: black; text-align: left;   padding-left: 70px;font: size 5;"><u>Intent</u></h1>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>EEIs answered:<img src="../img/pbint1.png" alt="some gir text">
+        </li>
+    </ul>
+    <figure>
+        <img src="../img/pbprep2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 20%;">
+    </figure>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>The motive of the attacker here is to obtain and brute force the domain services' and/or domain accounts' hash.</li>
+        <li>The adversary is usually adjacent to the high value target in this type of attack scenario and begins its course of action as a "compromised host" on the network itself.</li>
+        <li>This compromised host then conducts scanning of the domain to gather valid Service Principal Names (SPNs) tied to domain services and domain accounts.</li>
+        <li>The attacker then requests TGS ticket for the discovered SPN using any of the tools
+            mentioned in Threat COA document.</li>
+        <li>This TGS ticket is then dumped into cache to brute force offline and get to the clear text password of the corresponding domain account.</li>
+    </ul>  
+    <h1 style="color: black; text-align: left;   padding-left: 70px;font: size 5;"><u>Reconnaissance</u></h1>
+    <figure>
+        <img src="../img/pb4.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 20%;">
+        <figcaption style="font-size: 30px; text-align:center">Reconnaissance</figcaption>
+    </figure>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>Attacker conducts initial Reconnaissance for the highly privileged users + ones with the SPN set:</li>
+        <figure>
+            <img src="../img/pbrecon1.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Attacker querying AD for all highly privileged user accounts with a SPN.</figcaption>
+        </figure>
+        <li>Further details from the enumeration phase, AD users with SPNs set:</li>
+        <figure>
+            <img src="../img/pbrecon2.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Enumeration of AD users with Service Principal Names set</figcaption>
+        </figure>
+        <li>Leveraging the impacket library, the attacker harvests the SPNs of the domain
+            users:</li>
+        <figure>
+            <img src="../img/pbrecon3.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Service Principal Name Enumeration of Domain Users</figcaption>
+        </figure>
+    </ul>
+  
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>INTEL 471 | Capstone</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="img/icon.png">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-inverse">
+      <a href="/" class="navbar-brand">Intel 471</a>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- MAIN CONTENT HERE -->
+  <%- defineContent('hero') %>
+
+  <main>
+    <div class="flex-container" style="margin-left: 30px; margin-right: 30px; ">
+      <%-defineContent('body') %>
+      
+    </div>
+  </main>
+  <footer >
+    Intelligence Driven Cyber Threat Modeling by Nishith Lakhnotra. Copyright &copy; 2020
+  </footer>
+</body>
+</html>

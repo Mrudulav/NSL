@@ -1,0 +1,31 @@
+<div class="jumbotron text-center">
+    <h1 style="color: black; text-align: center;   padding-left: 70px;font: size 8;"><u>Engagement</u></h1>
+        <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+            <li><b>Offensive Indicator: Exploitation</b></li>
+        </ul>
+        <figure>
+            <img src="../img/pbeng1.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 20%;">
+        </figure>
+        <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+            <li>The attacker asking for the TGT of sqladmin account which is a part of domain users and is a prominent service:</li>
+            <figure>
+                <img src="../img/pbe2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+                <figcaption style="font-size: 30px; text-align:center">Requesting TGT and caching it to crack later</figcaption>
+            </figure>
+            <li>The PowerShell script Invoke Kerberoast is used to cache and dump the TGS ticket to brute force later:</li>
+            <figure>
+                <img src="../img/pbeng2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+                <figcaption style="font-size: 30px; text-align: center;">SQLAdmin account Kerberos Hash cracked</figcaption>
+            </figure>
+            <li>Note that we are mapping our indicators to the <b>"Left of Intrusion"</b> stages that involve external actions which is exactly where we intend to tackle the adversary and foil the threat course of action.</li>
+            <figure>
+                <img src="../img/pbe5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+                <figcaption style="font-size: 30px; text-align:center">Excerpt from the Common Cyber Threat Framework</figcaption>
+            </figure>
+            <li>The important mapping of the "left of the intrusion" stages to the offensive indicators:</li>
+            <figure>
+                <img src="../img/pbeng3.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+                <figcaption style="font-size: 30px; text-align:center">Mapping Common Cyber Threat Framework to offensive indicators </figcaption>
+            </figure>
+        </ul>
+</div>

@@ -1,0 +1,262 @@
+<div class="jumbotron text-center">
+    <h1 style="color: black; text-align: center; padding-bottom: 30px; font-size:60px;"><u>Playbook</u></h1>
+    <div style="font-size: xx-large; text-align: center; margin: 40px;">According to the Art of War principle, "If you know your enemy and you know thyself, you need not fear the outcome of a thousand battles".</div>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">This Playbook concentrates on bisecting every minute detail around the adversary life cycle, defines the Offensive Indicators, Supporting Artifacts, and Indicators of Compromise corresponding to each stage of the life cycle.</div>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;"> The efforts here are emphasized more towards the "Left of the Intrusion" Stages, Objectives, Actions, and Indicators from the Common Cyber Threat Framework [REF] proposed by the Office of the Director of National Intelligence to promote a proactive approach towards foiling cyber adversary actions.</div>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">This Playbook takes an example attack to set up a methodology on how to approach an adversary for potential attacks.</div>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">The flow of the playbook shall be as follows:</div>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li style="text-align: left;">Define Essential Elements of Information: Basic questions about an adversary that needs to be answered.</li>
+        <li>Gather Intelligence Requirements : Organize, Prioritize, Produce and Measure cyber intelligence.</li>
+        <li>Determine the Threat Course of Action.</li>
+        <li>Map Offensive Indicators, Supporting Artifacts, and Indicators of Compromise to the Common Cyber Threat Framework.</li>
+    </ul>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; "><u>Attack Scenario:</u> <mark style="background-color: Orange;">Domain Credential Access</mark></div>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; "><u>Attack Technique:</u> <mark style="background-color: Orange;">Kerberoasting</mark></div>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+    <ol style="counter-reset: item; padding-left: 10px;margin: 40px;" type="1" start="number">
+        <!-- <li>Attack Map components mapped to <b>Intelligence Preparation for Battlefield</b> Cyber Adversary Modeling.</li> -->
+        <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">We shall briefly define High-Value Targets, Operational Environment, and Key Terrain in the light of Intelligence Preparation for Battlefield [REF] literature; we shall map our attack technique components to the same here..</div>
+            <li>Attack Map components mapped to <b>Intelligence Preparation for Battlefield</b> Cyber Adversary Modeling.
+                <ol type="i">
+                    <li><b>High-Value Target:</b> </li>
+                    <img src="../img/hvt.png" alt="some pb text" class="center" style = "display: block; margin-left: auto; margin-right: auto;">
+                    <li><b>Operational Environment:</b> </li>
+                    <img src="../img/OE.png" alt="some pb text" class="center" style = "display: block; margin-left: auto; margin-right: auto;">
+                    <li><b>Key Terrain:</b> </li>
+                    <img src="../img/KT.png" alt="some pb text" class="center" style = "display: block; margin-left: auto; margin-right: auto;">
+                </ol>
+            </li>
+            <figure>
+                <img src="../img/image.png" alt="Attack Map" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+                <figcaption style="font-size: 30px; text-align:center">Attack Map</figcaption> 
+            </figure>
+            <li style = "padding-top: 30px;"> Inspired by <b>Common Cyber Threat Framework,</b> the adversary life cycle can be divided into four phases or stages (We are looking at only left of intrusion only for proactive measures) : 
+                <ol type="i">
+                    <li>Preparation: Activities undertaken by a threat actor, their leadership, and/or sponsor to prepare for conducting malicious cyber activities.</li>
+                    <li>Engagement: Threat actor activities taken with the intent to gain unauthorized access to the intended victim's physical or virtual computer or information system(s), network(s), and/or data stores.</li>    
+                </ol>
+            </li>
+            <figure>
+                <img src="../img/framework.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+                <figcaption style="font-size: 30px; text-align:center">Common Cyber Threat Framework</figcaption>
+            </figure>
+            <li style = "padding-top: 30px;"><b>General Intelligence Requirements</b>
+                <div style="font-size: xx-large; text-align: left; text-align: justify;">Referencing the General Intelligence Requirements literature here, we shall be concentrating on the <mark style="background-color: orange;">5.2.6: Credential Access Tactic</mark>from the Cyber Underground General Intelligence Requirements Handbook by Intel471.
+                </div>
+                <div style="font-size: xx-large; text-align: left; text-align: justify;">EEI (Essential Elements of Information), the basic questions regarding the adversary course of action that need to be answered:
+                <div style="font-size: xx-large; text-align: left; text-align: justify;">These are the enemy EEIs that need to be specific to your attack/ modeling (different from friendly intelligence requirements and EEIs from Threat Course of Action template):</div>
+                <img src="../img/pbgir.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-right: auto; width: 50%;">
+                </div>
+                <div style="font-size: xx-large; text-align: left; text-align: justify;">These questions are the ones that should be answered by an ideal playbook as this.</div>
+                <div style="font-size: xx-large; text-align: left; text-align: justify;"> These EEIs are referenced as they are being answered in their respective phases.</div>
+            </li>
+        </div>
+    </ol>
+    <h1 style="color: black; text-align: left;   padding-left: 70px;font: size 5;"><u>Preparation</u></h1>
+    <div style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">As defined earlier we shall track and map the Offensive Indicators, Behavior Fingerprints, Supporting Artifacts and Tools from the "Threat Course of Action" document to the Common Cyber Threat Framework.</div>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li><b>Offensive Indicator: Intent, Reconnaissance</b></li>
+    </ul>
+    <figure>
+        <img src="../img/pbprep1.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 50%;">
+    </figure>
+    <h1 style="color: black; text-align: left;   padding-left: 70px;font: size 5;"><u>Intent</u></h1>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>EEIs answered:<img src="../img/pbint1.png" alt="some gir text">
+        </li>
+    </ul>
+    <figure>
+        <img src="../img/pbprep2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 20%;">
+    </figure>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>The motive of the attacker here is to obtain and brute force the domain services' and/or domain accounts' hash.</li>
+        <li>The adversary is usually adjacent to the high value target in this type of attack scenario and begins its course of action as a "compromised host" on the network itself.</li>
+        <li>This compromised host then conducts scanning of the domain to gather valid Service Principal Names (SPNs) tied to domain services and domain accounts.</li>
+        <li>The attacker then requests TGS ticket for the discovered SPN using any of the tools
+            mentioned in Threat COA document.</li>
+        <li>This TGS ticket is then dumped into cache to brute force offline and get to the clear text password of the corresponding domain account.</li>
+    </ul>  
+    <h1 style="color: black; text-align: left;   padding-left: 70px;font: size 5;"><u>Reconnaissance</u></h1>
+    <figure>
+        <img src="../img/pb4.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 20%;">
+        <figcaption style="font-size: 30px; text-align:center">Reconnaissance</figcaption>
+    </figure>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>Attacker conducts initial Reconnaissance for the highly privileged users + ones with the SPN set:</li>
+        <figure>
+            <img src="../img/pbrecon1.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Attacker querying AD for all highly privileged user accounts with a SPN.</figcaption>
+        </figure>
+        <li>Further details from the enumeration phase, AD users with SPNs set:</li>
+        <figure>
+            <img src="../img/pbrecon2.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Enumeration of AD users with Service Principal Names set</figcaption>
+        </figure>
+        <li>Leveraging the impacket library, the attacker harvests the SPNs of the domain
+            users:</li>
+        <figure>
+            <img src="../img/pbrecon3.png" alt="Framework" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Service Principal Name Enumeration of Domain Users</figcaption>
+        </figure>
+    </ul>
+    <h1 style="color: black; text-align: left;   padding-left: 70px;font: size 5;"><u>Engagement</u></h1>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li><b>Offensive Indicator: Exploitation</b></li>
+    </ul>
+    <figure>
+        <img src="../img/pbeng1.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 20%;">
+    </figure>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>The attacker asking for the TGT of sqladmin account which is a part of domain users and is a prominent service:</li>
+        <figure>
+            <img src="../img/pbe2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Requesting TGT and caching it to crack later</figcaption>
+        </figure>
+        <li>The PowerShell script Invoke Kerberoast is used to cache and dump the TGS ticket to brute force later:</li>
+        <figure>
+            <img src="../img/pbeng2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align: center;">SQLAdmin account Kerberos Hash cracked</figcaption>
+        </figure>
+        <li>Note that we are mapping our indicators to the <b>"Left of Intrusion"</b> stages that involve external actions which is exactly where we intend to tackle the adversary and foil the threat course of action.</li>
+        <figure>
+            <img src="../img/pbe5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Excerpt from the Common Cyber Threat Framework</figcaption>
+        </figure>
+        <li>The important mapping of the "left of the intrusion" stages to the offensive indicators:</li>
+        <figure>
+            <img src="../img/pbeng3.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px; text-align:center">Mapping Common Cyber Threat Framework to offensive indicators </figcaption>
+        </figure>
+    </ul>
+    <h1 style="color: black; text-align: left;   padding-left: 50px;font: size 4;"><u>Supporting Artifacts, Indicators of Compromise</u></h1>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>EEIs answered: <img src="../img/pbeng4.png" alt="EEIs"></li>
+        <li>The native Windows Event Logging system is quite robust to be detecting and alerting the Kerberoast attack technique.</li>
+        <li>The Event Logging system is quite prominent when collecting artifacts for Kerberos Service Ticket requests.</li>
+        <figure>
+            <img src="../img/pbeng5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 50%;">
+            <figcaption style="font-size: 30px; text-align:center">Windows Event ID 4768: Kerberos Authentication Ticket (TGT) was requested</figcaption>
+        </figure>
+        <figure>
+            <img src="../img/pbeng6.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 50%;">
+            <figcaption style="font-size: 30px;text-align:center">Windows Event ID 4769: Kerberos Service Ticket was requested</figcaption>
+        </figure>
+        <li>As shown in the logs, a service and an authentication ticket was requested.</li>
+        <figure>
+            <img src="../img/pbsa3.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center">Wireshark: TGS-REQ/TGS-REP</figcaption>
+        </figure>
+        <li>Wireshark is another prominent tool for harvesting supporting artifacts.</li>
+        <li>As shown in the packet capture here, AS-REQ/AS-REP show up before TGS-REQ/TGS-REP , which is because firstly, initial user authentication goes through followed by authorization of the session ticket.</li>
+        <li>TGS stands for Ticket Granting Service and AS stands for Authentication Service.</li>
+        <li>Therefore, in this attack scenario, the <b>delta</b> (the unique behavior or the <b>fingerprint</b>) is the authorization of the user through AS-REQ/AS-REP first followed by TGS-REQ/TGS-REP.</li>
+        <figure>
+            <img src="../img/pbsa4.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Wireshark: TGS-REQ</figcaption>
+        </figure>
+        <figure>
+            <img src="../img/pbsa5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Wireshark: TGS-REP</figcaption>
+        </figure>
+        <li>One shall see more than one user requesting these TGS-REQ/TGS-REP under the sname tab for this attack scenario.</li>
+    </ul>
+    <h1 style="color: black; text-align: left;   padding-left: 50px;font: size 4;"><u>Behavior Fingerprint/Anomalous Behavior:</u></h1>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>EEIs answered: <img src="../img/pbsa.png" alt="EEIs"></li>
+        <li>It is tough to detect kerberoasting since service tickets are requested all the time : Normal Behavior, but if one sees multiple Kerberos Tickets requested in a very short amount of time, it is a major red flag and an indicator of : Anomalous Behavior.</li>
+        <figure>
+            <img src="../img/pba1.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center"> Multiple Kerberos Tickets requested in a very short interval of each other </figcaption>
+        </figure>
+        <li>Normal Vs. Anomalous behavior: Initial krbtgt tickets are AES encrypted while the later ones are RC4 encrypted, which is not normal.</li>
+        <figure>
+            <img src="../img/pba2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center">Monitoring TGS-REQ communication with RC4 encryption as shown for sqladmin user is a good starting indicator</figcaption>
+        </figure>
+        <li>Sorting the logs by Source, EntryType and Message to make the derivations clearer:</li>
+        <figure>
+            <img src="../img/pba3.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center">Consequent Screenshot: Same Source requesting multiple Kerberos tickets in short interval of time</figcaption>
+        </figure>
+        <li>The 0x17 Ticket Encryption Type is tied to RC4 encryption and since Kerberoasting involves requesting Kerberos TGS service Tickets with RC4 encryption, here is one more indicator of a good possible indicator:
+        </li>
+        <figure>
+            <img src="../img/pba4.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center">Kerberos RC4 encrypted tickets with Ticket Encryption Type 0x17</figcaption>
+        </figure>
+        <li>Native Windows Event Logging system catching multiple Kerberos service ticket
+            requests in quick succession:</li>
+        <figure>
+            <img src="../img/pba5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center">Windows Event Viewer demonstrating flood of 4769 Event IDs</figcaption>
+        </figure>
+        <li>Kerberos communication between the domain controller and the attacker machine (as summarized in Threat Course of Action template):</li>
+        <figure>
+            <img src="../img/pba6.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center">Wireshark communication between HVT: Domain Controller (192.168.1.10) and Attacker Machine (192.168.1.11)</figcaption>
+        </figure>
+    </ul>
+    <h1 style="color: black; text-align: left;   padding-left: 50px;font: size 4;"><u>Proactive Approach to Foil Threat COA:</u></h1>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>EEIs answered: <img src="../img/pbcoa.png" alt="EEIs"></li>
+        <li>Detection for this type of attack is said to have been tough since there are not many pointers differentiating Anomalous versus Normal behavior but we shall take into account the Supporting Artifacts/Indicators of Compromise to counter the adversary operations.</li>
+        <li>We shall write a rule to proactively detect adversary actions after we analyze the next couple of screenshots:</li>
+        <li>As stated earlier, it is evident from this screenshot that the Kerberos Ticket
+            Encryption type for sqladmin (for which we have conducted threat modeling) is RC4 while it is AES for the others, which is unusual.</li>
+        <figure>
+            <img src="../img/pbpa1.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px; text-align:center">Monitoring TGS-REQ communication with RC4 encryption as shown for sqladmin user is a good starting indicator</figcaption>
+        </figure>
+        <li>When users need access to the resources, the service tickets are requested all the time, but a single user harvesting multiple service requests in a very short interval of time.</li>
+        <figure>
+            <img src="../img/pbpa2.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Multiple Kerberos Tickets Requested in short interval of time can be tracked with alerts as mentioned earlier</figcaption>
+        </figure>
+        <li>From the previous two screenshots and the supporting artifact regarding the ticket encryption type, we can filter for actions that follow this rule:</li>
+        <figure>
+            <img src="../img/pbpa3.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Rules can be setup to trigger alerts on a potential attack as this</figcaption>
+        </figure>
+        <li>With this alert, we are looking at alerts that have the event code 4769, the ticket encryption type as 0x17 RC4 encryption), the account requesting service ticket is not a machine account (krbtgt account), failure code is 0x0.</li>
+        <li>Going a step forward, lets setup a trap to detect and counter the threat, we shall create a bait in form of a highly privileged account which will act as a HVT (High Value Target).</li>
+        <li>As listed below, we will be creating a "honeypot" with a fake Service Principle Name (SPN) so when it is requested, we know the request is not valid but malicious. </li>
+        <li>Creating a Honeypot account and assigning a Service Principal Name to it:</li>
+        <figure>
+            <img src="../img/pbpa4.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Proposing a Honeypot account</figcaption>
+        </figure>
+        <li>Setting the adminCount = 1 so as to allocate it to high privilege accounts:</li>
+        <figure>
+            <img src="../img/pbpa5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 40%;">
+            <figcaption style="font-size: 30px;text-align:center">Setting High Privileges for presenting as a HVT</figcaption>
+        </figure>
+        <li>The fake Service Principal Name SPN shows up:</li>
+        <figure>
+            <img src="../img/pbpa6.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 40%;">
+            <figcaption style="font-size: 30px;text-align:center">Fake Service Principal Name (SPN) </figcaption>
+        </figure>
+        <li>The Attacker asks for the TGT of the Honeypot (legitimate user has no business requesting the same):</li>
+        <figure>
+            <img src="../img/pbpa7.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px; text-align:center">Attacker asking for TGT of the Honeypot Account</figcaption>
+        </figure>
+        <li>The RC4 encrypted ticket of the honeypot account requested by the attacker:</li>
+        <figure>
+            <img src="../img/pbhoney1.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px; text-align: center;">klist output says the attacker has requested RC4 TGS ticket for the SPN</figcaption>
+        </figure>
+        <li>The event that calls for an alert for a definite Kerberoasting attack going on.</li>
+        <li>Event 4769 requested for the honeypot account with 0x17 RC4 encryption:</li>
+        <figure>
+            <img src="../img/pbpa9.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Ticket Encryption Type: 0x17 (RC4), Honeypot Kerberos Service Ticket Requested</figcaption>
+        </figure>
+        <li>Above given measures will classify the adversary activity from potential attack to <b>definite attack.</b></li>
+        <li>Through these proactive indicators that the threat intel team provides, the IR team should be simply putting the corresponding user under blacklist: One that triggers the aforementioned alert/ hits the honeypot account/ requests multiple RC4 encrypted Kerberos tickets in short interval as an <b>Exact Action</b> to foil threat COA.</li>
+    </ul>
+    <div style="font-size: xx-large; text-align: center; margin: 40px;"><b>MAJOR TAKEAWAY</b></div>
+    <figure>
+    <img src="../img/pbfinal.png" alt="some gir text" class="center" style = "display: block;  margin-left: auto;margin-right: auto; height:auto; width: 60%; ">
+    </figure>
+</div>

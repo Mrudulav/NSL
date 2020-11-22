@@ -1,0 +1,35 @@
+<div class="jumbotron text-center">
+    <h1 style="color: black; text-align: left;   padding-left: 50px;font: size 4;"><u>Supporting Artifacts, Indicators of Compromise</u></h1>
+    <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+        <li>EEIs answered: <img src="../img/pbeng4.png" alt="EEIs"></li>
+        <li>The native Windows Event Logging system is quite robust to be detecting and alerting the Kerberoast attack technique.</li>
+        <li>The Event Logging system is quite prominent when collecting artifacts for Kerberos Service Ticket requests.</li>
+        <figure>
+            <img src="../img/pbeng5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 50%;">
+            <figcaption style="font-size: 30px; text-align:center">Windows Event ID 4768: Kerberos Authentication Ticket (TGT) was requested</figcaption>
+        </figure>
+        <figure>
+            <img src="../img/pbeng6.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 50%;">
+            <figcaption style="font-size: 30px;text-align:center">Windows Event ID 4769: Kerberos Service Ticket was requested</figcaption>
+        </figure>
+        <li>As shown in the logs, a service and an authentication ticket was requested.</li>
+        <figure>
+            <img src="../img/pbsa3.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 90%;">
+            <figcaption style="font-size: 30px;text-align:center">Wireshark: TGS-REQ/TGS-REP</figcaption>
+        </figure>
+        <li>Wireshark is another prominent tool for harvesting supporting artifacts.</li>
+        <li>As shown in the packet capture here, AS-REQ/AS-REP show up before TGS-REQ/TGS-REP , which is because firstly, initial user authentication goes through followed by authorization of the session ticket.</li>
+        <li>TGS stands for Ticket Granting Service and AS stands for Authentication Service.</li>
+        <li>Therefore, in this attack scenario, the <b>delta</b> (the unique behavior or the <b>fingerprint</b>) is the authorization of the user through AS-REQ/AS-REP first followed by TGS-REQ/TGS-REP.</li>
+        <figure>
+            <img src="../img/pbsa4.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Wireshark: TGS-REQ</figcaption>
+        </figure>
+        <figure>
+            <img src="../img/pbsa5.png" alt="Recon" class="center" style = "padding-top: 30px; display: block; padding:top 20px; margin-left: auto; margin-right: auto; width: 70%;">
+            <figcaption style="font-size: 30px;text-align:center">Wireshark: TGS-REP</figcaption>
+        </figure>
+        <li>One shall see more than one user requesting these TGS-REQ/TGS-REP under the sname tab for this attack scenario.</li>
+    </ul>
+
+</div>

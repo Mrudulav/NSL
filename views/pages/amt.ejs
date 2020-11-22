@@ -1,0 +1,92 @@
+<div class="jumbotron text-center">
+  <h1 style="color: black;">Adversary Course of Action(Threat Modeling)</h1>
+  <div style="font-size: xx-large; text-align: left; margin: 40px;"></div>
+  <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+    <li>
+      This section is a succeeding literature to the conclusion of General Intelligence Requirements that emphasizes on the <br><b>5.2.6 Credential Access Tactic.</b>
+    </li>
+    <li>After concluding that we shall model around the <b>Domain Credential Access</b> Attack Scenario and the <b>Kerberoasting</b> Attack Technique, we shall go deep into all the possible adversary course of actions, the tools involved, understanding the operational environment, High-Value Targets, Key Terrain to serve the purpose of "Knowing Thyself" so as to counter and model the threat more effectively.</li>
+    <li>The idea here is organize, gather, and prioritize enough intel on adversary course of action to stop and foil the threat at the perimeter itself aggressively and proactively.</li>
+    <li>The friendly Intelligence Requirements or the Essential Elements of Information (basic questions) that one needs to seek for analysis are as follows:</li>
+    <img src="../img/amt1.png" alt="some gir text" class="center" style = "display: block; margin-right: auto; height:auto; width: 50%">
+    <li>We shall begin by defining and understanding the <b>Operational Environment (OE):</b></li>
+    <dl>
+      <dd>- A conceptualized test has been proposed on the RLES environment provided by Rochester Institute of Technology and majorly comprises of Windows operating system as the operational environment, here is a detailed Attack Map of the same:</dd>
+    </dl>
+    <figure>
+      <img src="../img/amt2.png" alt="some gir text" class="center" style = "display: block; margin-left: auto; margin-right: auto; height:auto; width: 50%; ">
+      <figcaption style="font-size: 30px; text-align: center;">Attack Map</figcaption> 
+    </figure>
+  </ul>
+  <div style="font-size: xx-large; text-align: left; margin: 40px;"><b>Understanding the Adversary and its motives</b></div>
+  <ul style="font-size: xx-large; text-align: left; margin: 40px; text-align: justify;">
+    <li>General Intelligence Requirement: <b>5.2.6: Credential Access Tactic.</b></li>
+    <li>Attack Scenario: <b>Domain Credential Access.</b></li>
+    <li>Attack Technique: <b>Kerberoasting.</b></li>
+    <li>EEIs Answered: <img src="../img/amt10.png" alt="some gir text"> </li>
+    <li>Kerberos is an authentication protocol used in Active Directory that defines how
+      clients interact with a network authentication service. The clients obtain tickets
+      from the Key Distribution Center (KDC) and submit these tickets to the application
+      server when the connection is established.</li>
+      <li>Here is a top-level message exchange summary between the User, KDC and an
+        application server to perform authentication from Tarlogic:</li>
+    <figure>
+      <img src="../img/amt3.png" alt="some gir text" class="center" style = "display: block; margin-left: auto; margin-right: auto; height:auto; width: 50%; ">
+      <figcaption style="font-size: 30px; text-align: center;">Kerberos Messages Summary</figcaption> 
+    </figure>
+    <li>Understanding key components involved with Kerberos:</li>
+    <figure>
+      <img src="../img/amt4.png" alt="some gir text" class="center" style = "display: block; margin-left: auto; margin-right: auto; height:auto; width: 50%; ">
+      <figcaption style="font-size: 30px; text-align: center;">Kerberos Components</figcaption> 
+    </figure>
+    <li>In <b>Kerberoasting</b>, the attacker tries to extract password hashes of domain services or domain accounts by stealing the KRB_TGS ticket which employs RC4 encryption, and then conduct an offline brute force of these hashes to obtain the password in plain text.</li>
+    <li>It is often the case that the adversaries will target domain service accounts since
+      they have privileges to help add an arbitrary user to the domain administrators and also because they typically have weak passwords for example access to MSSQL service can give out substantial data if compromised.</li>
+    <li>There are multiple tools and techniques using which Kerberoasting can be carried out, these possible courses of action can be divided into three phases:</li>
+    <dl>
+      <dd>- Enumeration of SPNs: <b>PowerShell script GetUserSPN.ps1, Mimi Katz</b>
+      </dd>
+      <dd>- Extract and dump TGS ticket and obtain hash: <b>TGSCipher.ps1</b></dd>
+      <dd>- Brute force Hash: <b>john the ripper (KALI LINUX), kirbi2john.py, Hashcat</b>
+      </dd>
+      <dd>- Other Tools that perform all the functions: <b>Rebeus.exe, impacket, Kerberoast
+        PowerShell Script.</b></dd>
+    </dl>
+    <li>Here is the Threat Course of Action we will model as an example in the Playbook: </li>
+    <li>Defining High Value Targets and Key Terrain is important before we demonstrate
+      Threat Course of Action:</li>
+    <dl>
+      <dd>-> A High-Value Target is a target the enemy commander requires in order to successfully complete the mission.<br>
+        In terms of a cyber adversary language, it can be a component of the domain that the threat actor is most interested in for maximum privileges.</dd>
+      <dd>-> An operational environment is a composite of the conditions, circumstances, and influences that affect the employment of capabilities and bear on the decisions of the commander.<br>
+        Here, Windows operating system is the operational environment, and the Attack Map further on in this document shall talk more about the same.</dd>
+    </dl>
+    <li>Enumeration of existing Service Principal Names (SPNs):</li>
+    <figure>
+      <img src="../img/amt5.png" alt="some gir text" class="center" style = "display: block; margin-left: auto; margin-right: auto; height:auto; width: 80%; ">
+      <figcaption style="font-size: 30px; text-align: center;">Service Principal Name Enumeration of Domain Users</figcaption> 
+    </figure>
+    <li>Extraction of TGS ticket and dumping it to obtain a hash (using Invoke Kerberoast PowerShell Script):</li>
+    <figure>
+      <img src="../img/amt6.png" alt="some gir text" class="center" style = "display: block; margin-left: auto; margin-right: auto; height:auto; width: 60%; ">
+      <figcaption style="font-size: 30px; text-align: center;">Invoking and dumping Kerberos Hash</figcaption> 
+    </figure>
+    <li>Cracking the dumped Kerberos Hash:</li>
+    <figure>
+      <img src="../img/amt7.png" alt="some gir text" class="center" style = "display: block; margin-left: auto; margin-right: auto; height:auto; width: 60%; ">
+      <figcaption style="font-size: 30px; text-align: center;">SQL Admin account Kerberos Hash cracked</figcaption> 
+    </figure>
+    <li> <img src="../img/amt9.png" alt="some gir text">will be answered in the Playbook.</li>
+  </ul>
+  <div style="font-size: xx-large; text-align: center; margin: 40px;"><b>MAJOR TAKEAWAY</b></div>
+  <figure>
+    <img src="../img/amt8.png" alt="some gir text" class="center" style = "display: block;  margin-left: auto;margin-right: auto; height:auto; width: 60%; ">
+  </figure>
+
+    
+    
+    
+    
+    
+  
+</div>
