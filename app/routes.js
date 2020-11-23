@@ -8,10 +8,6 @@ var router = express.Router();
 // export our router
 module.exports = router;
 
-// route for our homepage
-router.get('/', function(req, res) {
-  res.render('pages/home');
-});
 
 // route for our attackmap
 router.get('/attackmap', function(req, res) {
